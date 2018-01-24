@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Random Word</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="static/randomword/styles.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+	
+</head>
+<body>
+
+	<div class="container-fluid bg-1 text-center">
+		<h2>Can't come up with a secure password for your device? Use the following recommendations! See if there's one you like!</h2>
+	</div>	
+	<div class="container-fluid bg-2 text-center">
+		<h3>Random Password (attempts #{{request.session.clicks}})</h3>
+		<h1>{{word}}</h1>
+		<form action="/new" method="post">
+			{% csrf_token %}
+			<input type="submit" name="new" value="New Password">
+			
+		</form>
+		<form action="/reset" method="post">
+			{% csrf_token %}
+			<input type="submit" name="reset" value='Reset to OG'>
+			
+		</form>
+	</div>
+
+</body>
+</html>
